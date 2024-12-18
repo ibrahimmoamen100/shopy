@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر إلكتروني عصري</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-indigo-600 to-purple-600 shadow-xl fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="/" class="text-3xl font-bold text-white hover:text-indigo-200 transition duration-300">متجرنا</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <div class="relative">
+                        <input type="text" id="searchInput" placeholder="ابحث عن منتج..." 
+                               class="md:w-72 w-48 px-6 py-3 rounded-full border-2 border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent shadow-lg text-lg">
+                        <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                    <a href="/cart.html" class="text-white hover:text-indigo-200 transition duration-300 relative">
+                        <i class="fas fa-shopping-cart text-2xl"></i>
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full px-2 py-1 text-xs font-bold"></span>
+                    </a>
+                    <div id="userSection" class="text-white">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- <section class="hero-section bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 py-32">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="hero-content space-y-8">
+                    <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight animate-fade-in">اكتشف عالماً من التسوق المميز</h1>
+                    <p class="text-xl text-indigo-100">أحدث المنتجات وأفضل العروض بانتظارك</p>
+                    <div class="flex gap-6">
+                        <button class="px-8 py-4 bg-white text-indigo-600 rounded-full text-lg font-bold hover:bg-indigo-100 transition duration-300 transform hover:scale-105 shadow-xl">تسوق الآن</button>
+                    </div>
+                </div>
+                <div class="relative hidden md:block">
+                    <div class="relative">
+                        <img src="/images/hero-products.png" alt="Hero Products" class="w-full rounded-2xl shadow-2xl transform hover:scale-105 transition duration-500">
+                        <div class="absolute -bottom-8 -right-8 bg-white p-8 rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition duration-300">
+                            <p class="text-indigo-600 font-bold text-lg">خصم حصري</p>
+                            <p class="text-4xl font-bold text-gray-800">30% خصم</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Product Details Modal -->
+    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full mx-4 relative">
+            <!-- Close Button -->
+            <button onclick="closeProductModal()" class="absolute top-4 left-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
+                <!-- Product Images -->
+                <div class="space-y-4">
+                    <div id="mainImage" class="w-full h-96 rounded-lg overflow-hidden">
+                        <img src="" alt="" class="w-full h-full object-cover">
+                    </div>
+                    <div id="thumbnails" class="flex gap-2 overflow-x-auto pb-2">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="space-y-6">
+                    <div>
+                        <h2 id="modalProductTitle" class="text-3xl font-bold mb-2"></h2>
+                        <div class="flex items-center gap-4 text-lg">
+                            <span id="modalProductPrice" class="font-bold text-blue-600"></span>
+                            <span id="modalProductDiscountPrice" class="text-red-500 line-through"></span>
+                        </div>
+                    </div>
+
+                    <!-- Brand & Category -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-600">الماركة:</span>
+                            <span id="modalProductBrand" class="font-semibold"></span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-600">الفئة:</span>
+                            <span id="modalProductCategory" class="font-semibold"></span>
+                        </div>
+                    </div>
+
+                    <!-- Colors -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">الألوان المتاحة</h3>
+                        <div id="modalProductColors" class="flex gap-2">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Sizes -->
+                    <div id="modalSizesSection">
+                        <h3 class="text-lg font-semibold mb-2">المقاسات المتاحة</h3>
+                        <div id="modalProductSizes" class="flex flex-wrap gap-2">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Add to Cart Button -->
+                    <button id="modalAddToCart" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                        إضافة للسلة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4">
+            <div class="text-center">
+                <i class="fas fa-check-circle text-green-500 text-5xl mb-4"></i>
+                <h3 class="text-xl font-semibold mb-4" id="modalProductName"></h3>
+                <p class="text-gray-600 mb-6">تم إضافة المنتج إلى السلة بنجاح</p>
+                <div class="flex justify-center gap-4">
+                    <button onclick="window.location.href='/cart.html'" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
+                        إتمام الشراء
+                    </button>
+                    <button onclick="closeModal()" class="bg-gray-200 text-gray-800 px-6 py-2 rounded-lg hover:bg-gray-300">
+                        متابعة التسوق
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flash Sale Section -->
+    <div id="flashSaleSection" class="mt-16 bg-gradient-to-r from-red-500 to-pink-500 text-white py-4 hidden">
+        <!-- Will be populated by JavaScript -->
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 mt-24">
+        <!-- Filters Section -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="md:col-span-1">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <!-- Filter Header -->
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-4">
+                        <h2 class="text-xl font-bold text-white flex items-center">
+                            <i class="fas fa-filter mr-2"></i>
+                            خيارات التصفية
+                        </h2>
+                    </div>
+                    
+                    <!-- Filter Content -->
+                    <div class="p-6 space-y-6">
+                        <!-- Price Range -->
+                        <div class="filter-group">
+                            <h3 class="text-lg font-semibold mb-4 text-gray-800 flex items-center">
+                                <i class="fas fa-tag mr-2 text-indigo-600"></i>
+                                السعر
+                            </h3>
+                            <div class="px-2">
+                                <input type="range" id="priceRange" defaultValue="5000" min="0" max="10000" 
+                                       class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-indigo-600">
+                                <div class="flex justify-between mt-2">
+                                    <span class="text-sm font-medium text-gray-600">0 جنيه</span>
+                                    <span id="priceValue" class="text-sm font-medium text-indigo-600">5000جنيه</span>
+                                    <span class="text-sm font-medium text-gray-600">10000 جنيه</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Categories -->
+                        <div class="filter-group">
+                            <h3 class="text-lg font-semibold mb-4 text-gray-800 flex items-center">
+                                <i class="fas fa-th-large mr-2 text-indigo-600"></i>
+                                الفئات
+                            </h3>
+                            <div class="relative">
+                                <button id="categoryDropdownButton" 
+                                        class="w-full bg-white px-4 py-2 border border-gray-300 rounded-lg text-right flex items-center justify-between hover:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                    <span class="text-gray-700">اختر الفئات</span>
+                                    <i class="fas fa-chevron-down text-gray-400"></i>
+                                </button>
+                                <div id="categoriesFilter" 
+                                     class="absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg hidden max-h-60 overflow-y-auto">
+                                </div>
+                            </div>
+                            <div id="selectedCategories" class="mt-2 flex flex-wrap gap-2">
+                            </div>
+                        </div>
+
+                        <!-- Brands -->
+                        <div class="filter-group">
+                            <h3 class="text-lg font-semibold mb-4 text-gray-800 flex items-center">
+                                <i class="fas fa-star mr-2 text-indigo-600"></i>
+                                الماركات
+                            </h3>
+                            <div class="relative">
+                                <button id="brandDropdownButton" 
+                                        class="w-full bg-white px-4 py-2 border border-gray-300 rounded-lg text-right flex items-center justify-between hover:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                    <span class="text-gray-700">اختر الماركات</span>
+                                    <i class="fas fa-chevron-down text-gray-400"></i>
+                                </button>
+                                <div id="brandsFilter" 
+                                     class="absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg hidden max-h-60 overflow-y-auto">
+                                </div>
+                            </div>
+                            <div id="selectedBrands" class="mt-2 flex flex-wrap gap-2">
+                            </div>
+                        </div>
+
+                        <!-- Colors -->
+                        <div class="filter-group">
+                            <h3 class="text-lg font-semibold mb-4 text-gray-800 flex items-center">
+                                <i class="fas fa-palette mr-2 text-indigo-600"></i>
+                                الألوان
+                            </h3>
+                            <div id="colorsFilter" class="flex flex-wrap gap-3 px-2">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="md:col-span-3">
+                <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">عن المتجر</h3>
+                    <p class="text-gray-300">متجر إلكتروني عصري يوفر أفضل المنتجات بأسعار تنافسية</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">روابط سريعة</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-300 hover:text-white">الرئيسية</a></li>
+                        <li><a href="/products" class="text-gray-300 hover:text-white">المنتجات</a></li>
+                        <li><a href="/contact" class="text-gray-300 hover:text-white">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">تواصل معنا</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/js/main.js"></script>
+</body>
+</html>
