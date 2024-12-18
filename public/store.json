@@ -24,42 +24,71 @@
       "createdAt": "2024-12-18T10:13:36.082Z"
     },
     {
-      "id": "1734530458323",
-      "sku": "SKUM4TYNF83",
-      "title": "طقم حلل جرانيتssssssddd",
-      "price": 4524,
-      "discountPrice": 4000,
-      "brand": "dream",
-      "category": "ادوات منزليه",
-      "colors": [
-        "#ff0000"
-      ],
+      "id": "1734543148877",
+      "sku": "PRD-2289-8877",
+      "title": "ddddddd",
+      "price": 45,
+      "discountPrice": 6454,
+      "brand": "sdsdddddddddddd",
+      "category": "سجاد",
+      "colors": [],
       "sizes": [
-        "24"
+        "546",
+        "45"
       ],
       "images": [
-        "/uploads/1734530458283.jpg",
-        "/uploads/1734530458312.jpg",
-        "/uploads/1734530458321.jpg"
+        "/uploads/1734543148871.jpg"
       ],
-      "createdAt": "2024-12-18T14:00:58.323Z"
+      "inBox": false,
+      "endTime": null,
+      "createdAt": "2024-12-18T17:32:28.877Z"
     },
     {
-      "id": "1734531251612",
-      "sku": "SKUM4TZ4FBW",
-      "title": "طقم حلل جرانيتvvv",
-      "price": "4524",
-      "discountPrice": "4000",
+      "id": "1734543184344",
+      "sku": "PRD-9730-4344",
+      "title": "asdxzc",
+      "price": 212,
+      "discountPrice": 243,
       "brand": "dream",
-      "category": "ادوات منزليه",
-      "colors": "",
-      "sizes": "24",
-      "endTime": "",
-      "images": [
-        "/uploads/1734531251609.jpg",
-        "/uploads/1734531251610.jpg"
+      "category": "سجاد",
+      "colors": [
+        "#ff0000",
+        "#0000ff"
       ],
-      "createdAt": "2024-12-18T14:14:11.612Z"
+      "sizes": [
+        "546",
+        "45"
+      ],
+      "images": [
+        "/uploads/1734543184342.jpg"
+      ],
+      "inBox": false,
+      "endTime": null,
+      "createdAt": "2024-12-18T17:33:04.344Z"
+    },
+    {
+      "id": "1734543674311",
+      "sku": "PRD-4007-4312",
+      "title": "asdxzc",
+      "price": 212,
+      "discountPrice": 243,
+      "brand": "dream",
+      "category": "مفارش",
+      "colors": [
+        "#00ff00",
+        "#0000ff",
+        "#ffff00"
+      ],
+      "sizes": [
+        "546",
+        "45"
+      ],
+      "images": [
+        "/uploads/1734543674307.jpg"
+      ],
+      "inBox": false,
+      "endTime": null,
+      "createdAt": "2024-12-18T17:41:14.311Z"
     }
   ],
   "categories": [
