@@ -89,6 +89,33 @@
       "inBox": false,
       "endTime": null,
       "createdAt": "2024-12-18T17:41:14.311Z"
+    },
+    {
+      "id": "1734550964931",
+      "sku": "PRD-5826-4931",
+      "title": "طقم اركوبايريكس 10 قطع",
+      "price": 2400,
+      "discountPrice": 2000,
+      "brand": "dream",
+      "category": "ادوات منزليه",
+      "colors": [
+        "#00ff00",
+        "#0000ff",
+        "#ffff00",
+        "#ff00ff"
+      ],
+      "sizes": [
+        "28",
+        "24"
+      ],
+      "images": [
+        "/uploads/1734550964903.jpg",
+        "/uploads/1734550964923.jpg",
+        "/uploads/1734550964926.jpg"
+      ],
+      "inBox": false,
+      "endTime": "2024-12-20T12:00",
+      "createdAt": "2024-12-18T19:42:44.931Z"
     }
   ],
   "categories": [
