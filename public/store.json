@@ -1,236 +1,36 @@
 {
   "products": [
     {
-      "id": "1734472487569",
-      "sku": "PRD-7073-7569",
-      "title": "zxczzxc",
-      "price": 454,
-      "discountPrice": 445,
-      "brand": "4545",
-      "category": "Clothing",
-      "colors": [
-        "#ffff00",
-        "#0000ff"
-      ],
-      "sizes": [
-        "sdfsd"
-      ],
-      "images": [
-        "/uploads/1734472487548.jpg"
-      ],
-      "inBox": false,
-      "endTime": "2024-12-20T00:12",
-      "createdAt": "2024-12-17T21:54:47.569Z"
-    },
-    {
-      "id": "1734504428223",
-      "sku": "PRD-8445-8223",
-      "title": "EL BADR GROUP STORES",
-      "price": 4524,
-      "discountPrice": 2421,
-      "brand": "dream",
-      "category": "Clothing",
-      "colors": [
-        "#00ff00"
-      ],
-      "sizes": [
-        "34"
-      ],
-      "images": [
-        "/uploads/1734504428216.jpg"
-      ],
-      "inBox": false,
-      "endTime": null,
-      "createdAt": "2024-12-18T06:47:08.223Z"
-    },
-    {
-      "id": "1734504987682",
-      "sku": "PRD-3644-7682",
-      "title": "EL BADR GROUP STORES",
-      "price": 4524,
-      "discountPrice": 2421,
-      "brand": "dream",
-      "category": "Clothing",
-      "colors": [
-        "#0000ff"
-      ],
-      "sizes": [
-        "34"
-      ],
-      "images": [
-        "/uploads/1734504987673.jpg"
-      ],
-      "inBox": false,
-      "endTime": null,
-      "createdAt": "2024-12-18T06:56:27.682Z"
-    },
-    {
-      "id": "1734505690861",
-      "sku": "PRD-9819-0861",
+      "id": "1734516816082",
+      "sku": "PRD-3593-6082",
       "title": "طقم حلل جرانيت",
       "price": 4524,
       "discountPrice": 4000,
       "brand": "dream",
-      "category": "Clothing",
+      "category": "ادوات منزليه",
       "colors": [
-        "#00ff00",
         "#0000ff"
       ],
       "sizes": [
         "24"
       ],
       "images": [
-        "/uploads/1734505690853.jpg",
-        "/uploads/1734505690854.jpg",
-        "/uploads/1734505690857.jpg"
-      ],
-      "inBox": false,
-      "endTime": "2024-12-20T00:12",
-      "createdAt": "2024-12-18T07:08:10.861Z"
-    },
-    {
-      "id": "1734504987682",
-      "sku": "PRD-3644-7682",
-      "title": "EL BADR GROUP STORES",
-      "price": 4524,
-      "discountPrice": 2421,
-      "brand": "dream",
-      "category": "Clothing",
-      "colors": [
-        "#0000ff"
-      ],
-      "sizes": [
-        "34"
-      ],
-      "images": [
-        "/uploads/1734504987673.jpg"
+        "/uploads/1734516816054.jpg",
+        "/uploads/1734516816070.jpg",
+        "/uploads/1734516816078.jpg"
       ],
       "inBox": false,
       "endTime": null,
-      "createdAt": "2024-12-18T06:56:27.682Z"
+      "createdAt": "2024-12-18T10:13:36.082Z"
     },
     {
-      "id": "1734505690861",
-      "sku": "PRD-9819-0861",
-      "title": "طقم حلل جرانيت",
+      "id": "1734530458323",
+      "sku": "SKUM4TYNF83",
+      "title": "طقم حلل جرانيتssssssddd",
       "price": 4524,
       "discountPrice": 4000,
       "brand": "dream",
-      "category": "Clothing",
-      "colors": [
-        "#00ff00",
-        "#0000ff"
-      ],
-      "sizes": [
-        "24"
-      ],
-      "images": [
-        "/uploads/1734505690853.jpg",
-        "/uploads/1734505690854.jpg",
-        "/uploads/1734505690857.jpg"
-      ],
-      "inBox": false,
-      "endTime": "2024-12-20T00:12",
-      "createdAt": "2024-12-18T07:08:10.861Z"
-    },
-    {
-      "id": "1734504987682",
-      "sku": "PRD-3644-7682",
-      "title": "EL BADR GROUP STORES",
-      "price": 4524,
-      "discountPrice": 2421,
-      "brand": "dream",
-      "category": "Clothing",
-      "colors": [
-        "#0000ff"
-      ],
-      "sizes": [
-        "34"
-      ],
-      "images": [
-        "/uploads/1734504987673.jpg"
-      ],
-      "inBox": false,
-      "endTime": null,
-      "createdAt": "2024-12-18T06:56:27.682Z"
-    },
-    {
-      "id": "1734505690861",
-      "sku": "PRD-9819-0861",
-      "title": "طقم حلل جرانيت",
-      "price": 4524,
-      "discountPrice": 4000,
-      "brand": "dream",
-      "category": "Clothing",
-      "colors": [
-        "#00ff00",
-        "#0000ff"
-      ],
-      "sizes": [
-        "24"
-      ],
-      "images": [
-        "/uploads/1734505690853.jpg",
-        "/uploads/1734505690854.jpg",
-        "/uploads/1734505690857.jpg"
-      ],
-      "inBox": false,
-      "endTime": "2024-12-20T00:12",
-      "createdAt": "2024-12-18T07:08:10.861Z"
-    },
-    {
-      "id": "1734504987682",
-      "sku": "PRD-3644-7682",
-      "title": "EL BADR GROUP STORES",
-      "price": 4524,
-      "discountPrice": 2421,
-      "brand": "dream",
-      "category": "Clothing",
-      "colors": [
-        "#0000ff"
-      ],
-      "sizes": [
-        "34"
-      ],
-      "images": [
-        "/uploads/1734504987673.jpg"
-      ],
-      "inBox": false,
-      "endTime": null,
-      "createdAt": "2024-12-18T06:56:27.682Z"
-    },
-    {
-      "id": "1734505690861",
-      "sku": "PRD-9819-0861",
-      "title": "طقم حلل جرانيت",
-      "price": 4524,
-      "discountPrice": 4000,
-      "brand": "dream",
-      "category": "Clothing",
-      "colors": [
-        "#00ff00",
-        "#0000ff"
-      ],
-      "sizes": [
-        "24"
-      ],
-      "images": [
-        "/uploads/1734505690853.jpg",
-        "/uploads/1734505690854.jpg",
-        "/uploads/1734505690857.jpg"
-      ],
-      "inBox": false,
-      "endTime": "2024-12-20T00:12",
-      "createdAt": "2024-12-18T07:08:10.861Z"
-    },
-    {
-      "id": "1734507566178",
-      "sku": "PRD-7566-6178",
-      "title": "طقم حلل جرانيت",
-      "price": 4524,
-      "discountPrice": 4000,
-      "brand": "dream",
-      "category": "Electronics",
+      "category": "ادوات منزليه",
       "colors": [
         "#ff0000"
       ],
@@ -238,13 +38,28 @@
         "24"
       ],
       "images": [
-        "/uploads/1734507566125.jpg",
-        "/uploads/1734507566126.jpg",
-        "/uploads/1734507566161.jpg"
+        "/uploads/1734530458283.jpg",
+        "/uploads/1734530458312.jpg",
+        "/uploads/1734530458321.jpg"
       ],
-      "inBox": true,
-      "endTime": "2024-12-20T00:12",
-      "createdAt": "2024-12-18T07:39:26.178Z"
+      "createdAt": "2024-12-18T14:00:58.323Z"
+    },
+    {
+      "id": "1734531251612",
+      "sku": "SKUM4TZ4FBW",
+      "title": "طقم حلل جرانيتvvv",
+      "price": "4524",
+      "discountPrice": "4000",
+      "brand": "dream",
+      "category": "ادوات منزليه",
+      "colors": "",
+      "sizes": "24",
+      "endTime": "",
+      "images": [
+        "/uploads/1734531251609.jpg",
+        "/uploads/1734531251610.jpg"
+      ],
+      "createdAt": "2024-12-18T14:14:11.612Z"
     }
   ],
   "categories": [
