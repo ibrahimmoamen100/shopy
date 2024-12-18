@@ -98,8 +98,38 @@ function updateCartCount() {
 
 // Checkout function
 function checkout() {
-    // Here you would typically integrate with a payment gateway
-    alert('شكراً لك على الشراء! سيتم توجيهك إلى صفحة الدفع.');
+    if (cart.length === 0) {
+        alert('السلة فارغة! يرجى إضافة منتجات للسلة أولاً.');
+        return;
+    }
+
+    // Format the cart items into a nice message
+    let message = '🛍️ *طلب جديد*\n\n';
+    
+    // Add cart items
+    cart.forEach((item, index) => {
+        message += `${index + 1}. *${item.title}*\n`;
+        message += `   رقم المنتج: ${item.sku}\n`;
+        message += `   الكمية: ${item.quantity}\n`;
+        message += `   السعر: ${item.discountPrice} جنيه\n`;
+        message += `   المجموع: ${item.quantity * item.discountPrice} جنيه\n\n`;
+    });
+
+    // Add total
+    const total = cart.reduce((sum, item) => sum + (item.quantity * item.discountPrice), 0);
+    message += `\n💰 *المجموع الكلي: ${total} جنيه*`;
+
+    // Add your WhatsApp number here (replace with your actual number)
+    const phoneNumber = '201024911062'; // Format: country code without + and phone number
+    
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Create WhatsApp URL
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappURL, '_blank');
 }
 
 // Initialize when the page loads
