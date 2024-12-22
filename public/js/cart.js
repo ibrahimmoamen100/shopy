@@ -120,7 +120,7 @@ function checkout() {
     message += `\n💰 *المجموع الكلي: ${total} جنيه*`;
 
     // Add your WhatsApp number here (replace with your actual number)
-    const phoneNumber = '201024911062'; // Format: country code without + and phone number
+    const phoneNumber = '201507955392'; // Format: country code without + and phone number
     
     // Encode the message for URL
     const encodedMessage = encodeURIComponent(message);

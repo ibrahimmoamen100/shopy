@@ -1,121 +1,45 @@
 {
   "products": [
     {
-      "id": "1734516816082",
-      "sku": "PRD-3593-6082",
-      "title": "طقم حلل جرانيت",
-      "price": 4524,
-      "discountPrice": 4000,
-      "brand": "dream",
+      "id": "1734561033615",
+      "sku": "PRD-1979-3615",
+      "title": "طقم كاسات متكامل لوكس 46 قطعه",
+      "price": 725,
+      "discountPrice": 675,
+      "brand": "لوكس",
       "category": "ادوات منزليه",
-      "colors": [
-        "#0000ff"
-      ],
-      "sizes": [
-        "24"
-      ],
-      "images": [
-        "/uploads/1734516816054.jpg",
-        "/uploads/1734516816070.jpg",
-        "/uploads/1734516816078.jpg"
-      ],
-      "inBox": false,
-      "endTime": null,
-      "createdAt": "2024-12-18T10:13:36.082Z"
-    },
-    {
-      "id": "1734543148877",
-      "sku": "PRD-2289-8877",
-      "title": "ddddddd",
-      "price": 45,
-      "discountPrice": 6454,
-      "brand": "sdsdddddddddddd",
-      "category": "سجاد",
       "colors": [],
       "sizes": [
-        "546",
-        "45"
+        "46"
       ],
       "images": [
-        "/uploads/1734543148871.jpg"
+        "/uploads/1734561033606.jpg"
       ],
       "inBox": false,
       "endTime": null,
-      "createdAt": "2024-12-18T17:32:28.877Z"
+      "createdAt": "2024-12-18T22:30:33.615Z"
     },
     {
-      "id": "1734543184344",
-      "sku": "PRD-9730-4344",
-      "title": "asdxzc",
-      "price": 212,
-      "discountPrice": 243,
-      "brand": "dream",
-      "category": "سجاد",
-      "colors": [
-        "#ff0000",
-        "#0000ff"
-      ],
-      "sizes": [
-        "546",
-        "45"
-      ],
-      "images": [
-        "/uploads/1734543184342.jpg"
-      ],
-      "inBox": false,
-      "endTime": null,
-      "createdAt": "2024-12-18T17:33:04.344Z"
-    },
-    {
-      "id": "1734543674311",
-      "sku": "PRD-4007-4312",
-      "title": "asdxzc",
-      "price": 212,
-      "discountPrice": 243,
-      "brand": "dream",
-      "category": "مفارش",
-      "colors": [
-        "#00ff00",
-        "#0000ff",
-        "#ffff00"
-      ],
-      "sizes": [
-        "546",
-        "45"
-      ],
-      "images": [
-        "/uploads/1734543674307.jpg"
-      ],
-      "inBox": false,
-      "endTime": null,
-      "createdAt": "2024-12-18T17:41:14.311Z"
-    },
-    {
-      "id": "1734550964931",
-      "sku": "PRD-5826-4931",
-      "title": "طقم اركوبايريكس 10 قطع",
-      "price": 2400,
-      "discountPrice": 2000,
-      "brand": "dream",
+      "id": "1734561156704",
+      "sku": "PRD-7335-6704",
+      "title": "طقم شوربه 4 مج بورسلين علي استاند ",
+      "price": 620,
+      "discountPrice": 540,
+      "brand": "بورسلين",
       "category": "ادوات منزليه",
       "colors": [
-        "#00ff00",
-        "#0000ff",
-        "#ffff00",
-        "#ff00ff"
+        "#ff0000",
+        "#00ff00"
       ],
       "sizes": [
-        "28",
-        "24"
+        "xl"
       ],
       "images": [
-        "/uploads/1734550964903.jpg",
-        "/uploads/1734550964923.jpg",
-        "/uploads/1734550964926.jpg"
+        "/uploads/1734561156701.jpg"
       ],
       "inBox": false,
-      "endTime": "2024-12-20T12:00",
-      "createdAt": "2024-12-18T19:42:44.931Z"
+      "endTime": null,
+      "createdAt": "2024-12-18T22:32:36.704Z"
     }
   ],
   "categories": [
