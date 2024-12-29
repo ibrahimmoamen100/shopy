@@ -71,11 +71,11 @@ function renderProducts() {
     });
 
     productsGrid.innerHTML = filteredProducts.map(product => `
-        <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105 cursor-pointer"
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105  cursor-pointer"
              onclick="showProductModal('${product.id}')">
             <img src="${product.images[0]}" alt="${product.title}" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h3 class="text-lg font-semibold mb-2">${product.title}</h3>
+            <div class="p-4 flex flex-col justify-between">
+                <h3 class="text-lg font-semibold mb-2 h-24 overflow-hidden">${product.title}</h3>
                 <div class="flex justify-between items-center mb-2">
                     <span class="text-gray-600">${product.brand}</span>
                     <span class="text-blue-600 font-bold">${product.price} جنيه</span>
