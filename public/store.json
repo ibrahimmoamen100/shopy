@@ -1,72 +1,47 @@
 {
   "products": [
     {
-      "id": "1735824162051",
-      "sku": "PRD-9998-2051",
-      "title": "sa",
-      "price": 3800,
-      "discountPrice": 3499,
-      "brand": "AMD",
-      "category": "مفارش",
+      "id": "1735857228441",
+      "sku": "PRD-8848-8441",
+      "title": "Hp 600g with intel core i5 4500",
+      "price": 3200,
+      "discountPrice": 3000,
+      "brand": "HP",
+      "category": "كيسه استيراد",
       "colors": [
-        "#00ff00"
+        "#ff0000"
       ],
       "sizes": [],
-      "description": "apu 2400g with redeon Vega 11 apu 2400g with redeon Vega 11apu 2400g with redeon Vega 11apu 2400g with redeon Vega 11apu 2400g with redeon Vega 11apu 2400g with redeon Vega 11",
-      "sellerDetails": "01024654 فائرxxxxxx",
+      "description": "Hp 600g with intel core i5 4500 \r\nRam 8g ddr3\r\npower supply 450w\r\nSSD 240 Kingstone",
+      "sellerDetails": "سيد محسن 01024910104",
       "images": [
-        "/uploads/1735832987654.png",
-        "/uploads/1735832987724.png",
-        "/uploads/1735832987728.png"
+        "/uploads/1735857228407.webp"
       ],
       "inBox": false,
       "endTime": null,
-      "createdAt": "2025-01-02T13:22:42.051Z",
-      "updatedAt": "2025-01-02T16:07:07.966Z"
+      "createdAt": "2025-01-02T22:33:48.441Z",
+      "updatedAt": "2025-01-02T22:36:36.719Z"
     },
     {
-      "id": "1735828336541",
-      "sku": "PRD-7402-6541",
-      "title": "Ryzen 5 3600 ",
-      "price": 4500,
-      "discountPrice": 0,
-      "brand": "AMD",
-      "category": "مفارش",
+      "id": "1735857630629",
+      "sku": "PRD-1828-0629",
+      "title": "HP Victus Gaming Laptop (15-fb1004ne),",
+      "price": 14000,
+      "discountPrice": 11000,
+      "brand": "HP",
+      "category": "laptop",
       "colors": [
-        "#ff00ff"
+        "#ff0000"
       ],
-      "sizes": [
-        "asd"
-      ],
-      "description": "CPU ryzen 5 3600g amd CPU ryzen 5 3600g amd CPU ryzen 5 3600g amd ",
-      "sellerDetails": "01024654 فائر",
-      "images": [
-        "/uploads/1735828336526.png"
-      ],
-      "inBox": false,
-      "endTime": null,
-      "createdAt": "2025-01-02T14:32:16.541Z",
-      "updatedAt": "2025-01-02T15:51:32.548Z"
-    },
-    {
-      "id": "1735834403548",
-      "sku": "PRD-0847-3548",
-      "title": "APU 2400G ",
-      "price": 3800,
-      "discountPrice": 0,
-      "brand": "AMD",
-      "category": "كتب",
-      "colors": [],
       "sizes": [],
-      "description": "zxczxc",
-      "sellerDetails": "asdczxc",
+      "description": "HP Victus Gaming Laptop (15-fb1004ne), CPU: Ryzen 5-7535HS, 16GB DDR5 2DM 4800 Graphics Card: NVIDIA GeForce RTX 2050, VRAM: 4GB, Display: 15.6 FHD Antiglare IPS 250 nits 144Hz, 512GB, Windows 11",
+      "sellerDetails": "سيد محسن 01024910104",
       "images": [
-        "/uploads/1735834403525.png",
-        "/uploads/1735834403540.png"
+        "/uploads/1735857630624.png"
       ],
       "inBox": false,
       "endTime": null,
-      "createdAt": "2025-01-02T16:13:23.548Z"
+      "createdAt": "2025-01-02T22:40:30.629Z"
     }
   ],
   "categories": [

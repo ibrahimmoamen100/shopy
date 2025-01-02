@@ -2,7 +2,8 @@
 let products = [];
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let filters = {
-    price: 10000,
+    price: 100000,
+    
     categories: [],
     brands: [],
     colors: [],
@@ -492,7 +493,7 @@ function setupFilters() {
         const value = e.target.value;
         priceValue.textContent = value + ' جنيه';
         // Add smooth transition for the price value
-        priceValue.style.transform = `-translateX(${(value / 10000) * 100}%)`;
+        priceValue.style.transform = `-translateX(${(value / 100000) * 100}%)`;
         filters.price = parseInt(value);
         applyFilters();
     });

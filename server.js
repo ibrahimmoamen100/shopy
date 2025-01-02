@@ -3,9 +3,19 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
+const bcrypt = require('bcryptjs');
+const session = require('express-session');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Session middleware
+app.use(session({
+    secret: 'your-secret-key-here',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false } // Set to true if using HTTPS
+}));
 
 // Middleware
 app.use(cors());
@@ -60,6 +70,15 @@ function writeStore(data) {
     }
 }
 
+// Authentication middleware
+const requireAuth = (req, res, next) => {
+    if (req.session.isAuthenticated) {
+        next();
+    } else {
+        res.status(401).json({ error: 'Unauthorized' });
+    }
+};
+
 // Routes
 // Get all products
 app.get('/api/products', (req, res) => {
@@ -72,7 +91,7 @@ app.get('/api/products', (req, res) => {
 });
 
 // Add new product
-app.post('/api/products', upload.array('images'), (req, res) => {
+app.post('/api/products', requireAuth, upload.array('images'), (req, res) => {
     try {
         const store = readStore();
         const currentTime = new Date();
@@ -115,7 +134,7 @@ app.post('/api/products', upload.array('images'), (req, res) => {
 });
 
 // Update product
-app.put('/api/products/:id', upload.array('images'), (req, res) => {
+app.put('/api/products/:id', requireAuth, upload.array('images'), (req, res) => {
     try {
         const store = readStore();
         const index = store.products.findIndex(p => p.id === req.params.id);
@@ -151,7 +170,7 @@ app.put('/api/products/:id', upload.array('images'), (req, res) => {
 });
 
 // Delete product
-app.delete('/api/products/:id', (req, res) => {
+app.delete('/api/products/:id', requireAuth, (req, res) => {
     try {
         const store = readStore();
         const index = store.products.findIndex(p => p.id === req.params.id);
@@ -180,12 +199,8 @@ app.delete('/api/products/:id', (req, res) => {
     }
 });
 
-
-
-
-
 // Delete product image
-app.delete('/api/products/:id/images', (req, res) => {
+app.delete('/api/products/:id/images', requireAuth, (req, res) => {
     try {
         const store = readStore();
         const product = store.products.find(p => p.id === req.params.id);
@@ -219,7 +234,6 @@ app.delete('/api/products/:id/images', (req, res) => {
     }
 });
 
-
 // Get categories
 app.get('/api/categories', (req, res) => {
     try {
@@ -238,6 +252,31 @@ app.get('/api/brands', (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Failed to fetch brands' });
     }
+});
+
+// Authentication routes
+app.post('/api/login', async (req, res) => {
+    const { password } = req.body;
+    
+    try {
+        const hashedPassword = '$2a$10$0oLwZf3bNBddde4c9KGMS.Z4U5q9/gGNsibNHxfkROAJ.PvlCbY/e';
+        
+        const isValid = await bcrypt.compare(password, hashedPassword);
+        
+        if (isValid) {
+            req.session.isAuthenticated = true;
+            res.json({ success: true });
+        } else {
+            res.status(401).json({ error: 'Invalid password' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
+app.post('/api/logout', (req, res) => {
+    req.session.destroy();
+    res.json({ success: true });
 });
 
 // Start server

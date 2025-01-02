@@ -7,8 +7,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+        #passwordModal {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
+    <div id="passwordModal" class="fixed inset-0 bg-black w-full  flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-6">أدخل كلمة المرور</h2>
+            <input type="password" id="passwordInput" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
+            <button onclick="checkPassword()" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">تحقق</button>
+        </div>
+    </div>
 
 <!-- Top Navbar -->
 <div class="bg-indigo-600 text-white">
@@ -16,25 +30,20 @@
         <div class="flex justify-between items-center h-10 text-sm">
             <!-- Contact Info -->
             <div class="flex items-center space-x-4 space-x-reverse">
-                <div class="flex items-center">
-                    <i class="fas fa-phone-alt ml-2"></i>
-                    <span>+20 123 456 789</span>
+                <div class="flex items-center text-xl">
+                    <i class="fas fa-phone-alt ml-2 "></i>
+                    <span>01507955392</span>
                 </div>
 
             </div>
             
             <!-- Social Media Icons -->
             <div class="flex items-center space-x-4 space-x-reverse">
-                <a href="#" class="hover:text-indigo-200 transition duration-300">
+                <a href="https://www.facebook.com/groups/624824736549832" class="hover:text-indigo-200 transition duration-300 text-xl">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" class="hover:text-indigo-200 transition duration-300">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="hover:text-indigo-200 transition duration-300">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="hover:text-indigo-200 transition duration-300">
+
+                <a href="https://chat.whatsapp.com/CKq1Aix2irm5l0HsLwsc2G" class="hover:text-indigo-200 transition duration-300 text-xl">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
@@ -42,26 +51,20 @@
     </div>
 </div>
 
-
-
     <!-- Navbar -->
-    <nav class="bg-gradient-to-r from-indigo-600 to-purple-600 shadow-xl  fixed w-full top-0 z-50">
+    <nav class="navbar bg-white  w-full top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-2 md:px-4">
             <div class="flex justify-between items-center w-full ">
-                <div class="flex items-center">
-                    <a href="/" class="text-3xl font-bold text-white hover:text-indigo-200 p-2 transition duration-300"><img src="/images/logo.png" class="h-28 w-28" alt="Logo"></a>
+                <div class="flex items-center justify-center">
+                    <a href="/" class="text-3xl font-bold text-white hover:text-indigo-200 p-2 flex items-center flex-col justify-center transition duration-300">
+                        <img src="/images/logo14.png" class="h-28 w-28" alt="Logo"> 
+                    </a>
                 </div>
                 <div class="flex items-center  gap-2">
-                    <div class="relative">
-                        <input type="text" id="searchInput" placeholder="ابحث عن منتج..." 
-                               class="md:w-72 w-44 px-6 py-2 rounded-full border-2 border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent shadow-lg text-lg">
-                        <span class="absolute  left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                            <i class="fas fa-search"></i>
-                        </span>
-                    </div>
-                    <a href="/cart.html" class="text-white hover:text-indigo-200 transition duration-300 relative">
-                        <i class="fas fa-shopping-cart text-2xl"></i>
-                        <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full px-2 py-1 text-xs font-bold"></span>
+
+                    <a href="/cart.html" class="text-indigo-600 hover:text-indigo-900 transition duration-300 relative">
+                        <img src="/images/shop.png" class="h-10 w-10" alt="Cart">
+                        <span id="cartCount" class="absolute -top-2  bg-red-500 text-white rounded-full px-2 py-1 text-xs font-bold"></span>
                     </a>
                     <div id="userSection" class="text-white">
                         <!-- Will be populated by JavaScript -->
@@ -70,7 +73,6 @@
             </div>
         </div>
     </nav>
-
     <!-- Model for editing a product here  -->
     <div id="editProductModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
         <div class="bg-white rounded-lg shadow-md p-6">
@@ -244,6 +246,24 @@
         </div>
     </main>
 
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            if (password === '45086932') {
+                document.getElementById('passwordModal').style.display = 'none';
+            } else {
+                alert('كلمة المرور غير صحيحة');
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        // Add event listener for Enter key
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
     <script src="/js/admin.js"></script>
 </body>
 </html>
