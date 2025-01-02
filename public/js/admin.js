@@ -8,7 +8,9 @@ const selectedColorsInput = document.getElementById('selectedColors');
 const inBoxCheckbox = document.getElementById('inBox');
 const endTimeContainer = document.getElementById('endTimeContainer');
 const productsTableBody = document.getElementById('productsTableBody');
-
+const editProductModal = document.getElementById('editProductModal');
+const editProductForm = document.getElementById('editProductForm');
+let currentEditingProductId = null;
 // Initialize the admin panel
 async function init() {
     setupEventListeners();
@@ -53,10 +55,12 @@ async function handleAddProduct(e) {
         const price = formData.get('price');
         const brand = formData.get('brand');
         const category = formData.get('category');
+        const description = formData.get('description');
+        const sellerDetails = formData.get('sellerDetails');
         const images = formData.get('images');
 
         // Basic validation
-        if (!title || !price || !brand || !category) {
+        if (!title || !price || !brand || !category || !description || !sellerDetails) {
             showMessage('يرجى ملء جميع الحقول المطلوبة', 'error');
             return;
         }
@@ -144,12 +148,16 @@ function addProductToTable(product) {
     row.dataset.id = product.id;
     row.innerHTML = `
         <td class="px-4 py-2">
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center gap-4">
                 <img src="${product.images ? product.images[0] : ''}" alt="${product.title}" class="w-12 h-12 object-cover rounded">
-                <span class="mr-2">${product.title}</span>
+                <div class="flex flex-col">
+                <span class="mr-2">${product.title} </span>
+                <span class="mr-2 text-gray-500 text-sm">${product.sku} </span>
+                </div>
             </div>
         </td>
-        <td class="px-4 py-2">${product.price} ر.س</td>
+        <td class="px-4 py-2">${product.sellerDetails} </td>
+        <td class="px-4 py-2">${product.price} جنيه</td>
         <td class="px-4 py-2">${product.brand}</td>
         <td class="px-4 py-2">${product.category}</td>
         <td class="px-4 py-2">
@@ -162,6 +170,168 @@ function addProductToTable(product) {
         </td>
     `;
     productsTableBody.appendChild(row);
+}
+
+
+// Edit product
+async function editProduct(productId) {
+    try {
+        // Fetch product details
+        const response = await fetch(`/api/products`);
+        const products = await response.json();
+        const product = products.find(p => p.id === productId);
+        
+        if (!product) {
+            throw new Error('المنتج غير موجود');
+        }
+
+        // Store the current product ID
+        currentEditingProductId = productId;
+
+        // Fill the form with product details
+        const form = document.getElementById('editProductForm');
+        form.title.value = product.title;
+        form.price.value = product.price;
+        form.discountPrice.value = product.discountPrice || '';
+        form.brand.value = product.brand;
+        form.category.value = product.category;
+        form.description.value = product.description;
+        form.sellerDetails.value = product.sellerDetails || '';
+
+        // Display current images
+        const currentImagesDiv = document.getElementById('currentImages');
+        currentImagesDiv.innerHTML = '';
+        if (product.images && product.images.length > 0) {
+            product.images.forEach(imagePath => {
+                const imgContainer = document.createElement('div');
+                imgContainer.className = 'relative';
+                imgContainer.innerHTML = `
+                    <img src="${imagePath}" alt="Product image" class="w-20 h-20 object-cover rounded">
+                    <button type="button" class="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1 text-xs"
+                            onclick="removeProductImage('${imagePath}')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                currentImagesDiv.appendChild(imgContainer);
+            });
+        }
+
+        // Show the modal
+        editProductModal.classList.remove('hidden');
+    } catch (error) {
+        console.error('Error loading product:', error);
+        showMessage('حدث خطأ أثناء تحميل بيانات المنتج', 'error');
+    }
+}
+
+// Function to remove a product image
+async function removeProductImage(imagePath) {
+    if (!currentEditingProductId) return;
+    
+    try {
+        const response = await fetch(`/api/products/${currentEditingProductId}/images`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ imagePath })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to remove image');
+        }
+
+        // Remove the image from the UI
+        const imageElement = document.querySelector(`img[src="${imagePath}"]`);
+        if (imageElement) {
+            imageElement.parentElement.remove();
+        }
+
+        showMessage('تم حذف الصورة بنجاح', 'success');
+    } catch (error) {
+        console.error('Error removing image:', error);
+        showMessage('حدث خطأ أثناء حذف الصورة', 'error');
+    }
+}
+
+
+
+// Handle edit form submission
+editProductForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    try {
+        if (!currentEditingProductId) {
+            throw new Error('No product selected for editing');
+        }
+
+        const formData = new FormData(editProductForm);
+        
+        // Send update request
+        const response = await fetch(`/api/products/${currentEditingProductId}`, {
+            method: 'PUT',
+            body: formData // Send FormData directly to handle file uploads
+        });
+
+        if (!response.ok) {
+            throw new Error(await response.text() || 'Failed to update product');
+        }
+
+        const updatedProduct = await response.json();
+
+        // Update the product in the table
+        const row = productsTableBody.querySelector(`tr[data-id="${currentEditingProductId}"]`);
+        if (row) {
+            row.innerHTML = `
+                <td class="px-4 py-2">
+                    <div class="flex items-center gap-4">
+                        <img src="${updatedProduct.images ? updatedProduct.images[0] : ''}" alt="${updatedProduct.title}" class="w-12 h-12 object-cover rounded">
+                        <div class="flex flex-col">
+                            <span class="mr-2">${updatedProduct.title}</span>
+                            <span class="mr-2 text-gray-500 text-sm">${updatedProduct.sku}</span>
+                        </div>
+                    </div>
+                </td>
+                <td class="px-4 py-2">${updatedProduct.sellerDetails}</td>
+                <td class="px-4 py-2">
+                    ${updatedProduct.discountPrice ? 
+                        `<span class="line-through text-gray-500">${updatedProduct.price}</span>
+                         <span class="text-green-600">${updatedProduct.discountPrice}</span>` :
+                        `${updatedProduct.price}`} جنيه
+                </td>
+                <td class="px-4 py-2">${updatedProduct.brand}</td>
+                <td class="px-4 py-2">${updatedProduct.category}</td>
+                <td class="px-4 py-2">
+                    <button onclick="editProduct('${updatedProduct.id}')" class="text-blue-600 hover:text-blue-800 mr-2">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button onclick="deleteProduct('${updatedProduct.id}')" class="text-red-600 hover:text-red-800">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            `;
+        }
+
+        // Close modal and show success message
+        closeEditProductModal();
+        showMessage('تم تحديث المنتج بنجاح', 'success');
+    } catch (error) {
+        console.error('Error updating product:', error);
+        showMessage(error.message || 'حدث خطأ أثناء تحديث المنتج', 'error');
+    }
+});
+
+
+// Close edit modal
+function closeEditProductModal() {
+    editProductModal.classList.add('hidden');
+    currentEditingProductId = null;
+    // Reset the form
+    const form = document.getElementById('editProductForm');
+    form.reset();
+    // Clear current images
+    const currentImagesDiv = document.getElementById('currentImages');
+    currentImagesDiv.innerHTML = '';
 }
 
 // Show message function
@@ -185,11 +355,7 @@ function showMessage(message, type = 'success') {
     }, 3000);
 }
 
-// Edit product
-async function editProduct(productId) {
-    // Implementation for editing product
-    showMessage('سيتم إضافة خاصية التعديل قريباً', 'info');
-}
+
 
 // Delete product
 async function deleteProduct(productId) {

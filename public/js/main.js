@@ -44,6 +44,33 @@ async function fetchProducts() {
     }
 }
 
+
+
+
+
+// // Handle navbar scroll behavior
+// document.addEventListener('DOMContentLoaded', function() {
+//     const navbar = document.querySelector('.navbar');
+//     const scrollThreshold = 50; // Adjust this value to change when the navbar transforms
+
+//     function handleScroll() {
+//         if (window.scrollY > scrollThreshold) {
+//             navbar.classList.add('scrolled');
+//             navbar.style.height = '80px';
+//         } else {
+//             navbar.classList.remove('scrolled');
+//             navbar.style.height = 'auto';
+
+//         }
+//     }
+
+//     // Initial check
+//     handleScroll();
+
+//     // Add scroll event listener
+//     window.addEventListener('scroll', handleScroll);
+// });
+
 // Setup event listeners
 function setupEventListeners() {
     searchInput.addEventListener('input', (e) => {
@@ -77,8 +104,15 @@ function renderProducts() {
             <div class="p-4 flex flex-col justify-between">
                 <h3 class="text-lg font-semibold mb-2 h-24 overflow-hidden">${product.title}</h3>
                 <div class="flex justify-between items-center mb-2">
-                    <span class="text-gray-600">${product.brand}</span>
-                    <span class="text-blue-600 font-bold">${product.price} جنيه</span>
+                <div class="flex items-start space-x-2 flex-col text-sm">
+                <span class="text-gray-600">الفئه: ${product.category}</span>
+                <span class="text-gray-600"> المركه: ${product.brand}</span>
+                </div>
+
+                    ${product.discountPrice ? `
+                        <span class="text-blue-600 font-bold">${product.discountPrice} جنيه</span>
+                    ` : `<span class="text-blue-600 font-bold">${product.price} جنيه</span>
+`}
                 </div>
                 ${product.discountPrice ? `
                     <div class="text-red-500 text-sm mb-2">
@@ -597,6 +631,7 @@ function showProductModal(productId) {
 
     // Update modal content
     document.getElementById('modalProductTitle').textContent = product.title;
+    document.getElementById('modalProductDescription').textContent = product.description;
     document.getElementById('modalProductPrice').textContent = `${product.price} جنيه`;
     document.getElementById('modalProductDiscountPrice').textContent = product.discountPrice ? `${product.discountPrice} جنيه` : '';
     document.getElementById('modalProductBrand').textContent = product.brand;

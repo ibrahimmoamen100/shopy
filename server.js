@@ -97,6 +97,8 @@ app.post('/api/products', upload.array('images'), (req, res) => {
             category: req.body.category,
             colors: req.body.colors ? req.body.colors.split(',') : [],
             sizes: req.body.sizes ? req.body.sizes.split(',') : [],
+            description: req.body.description || '',
+            sellerDetails: req.body.sellerDetails || '',
             images: images,
             inBox: req.body.inBox === 'true',
             endTime: req.body.endTime || null,
@@ -129,6 +131,8 @@ app.put('/api/products/:id', upload.array('images'), (req, res) => {
             discountPrice: req.body.discountPrice ? parseFloat(req.body.discountPrice) : store.products[index].discountPrice,
             brand: req.body.brand || store.products[index].brand,
             category: req.body.category || store.products[index].category,
+            description: req.body.description || store.products[index].description,
+            sellerDetails: req.body.sellerDetails || store.products[index].sellerDetails,
             colors: req.body.colors ? req.body.colors.split(',') : store.products[index].colors,
             sizes: req.body.sizes ? req.body.sizes.split(',') : store.products[index].sizes,
             images: req.files.length > 0 ? req.files.map(file => `/uploads/${file.filename}`) : store.products[index].images,
@@ -175,6 +179,46 @@ app.delete('/api/products/:id', (req, res) => {
         res.status(500).json({ error: 'Failed to delete product' });
     }
 });
+
+
+
+
+
+// Delete product image
+app.delete('/api/products/:id/images', (req, res) => {
+    try {
+        const store = readStore();
+        const product = store.products.find(p => p.id === req.params.id);
+        
+        if (!product) {
+            return res.status(404).json({ error: 'Product not found' });
+        }
+
+        const { imagePath } = req.body;
+        
+        // Remove image from product's images array
+        const imageIndex = product.images.indexOf(imagePath);
+        if (imageIndex > -1) {
+            product.images.splice(imageIndex, 1);
+            
+            // Delete the actual image file
+            const fullPath = path.join(__dirname, 'public', imagePath);
+            if (fs.existsSync(fullPath)) {
+                fs.unlinkSync(fullPath);
+            }
+            
+            // Save updated product data
+            writeStore(store);
+            res.status(200).json({ message: 'Image deleted successfully' });
+        } else {
+            res.status(404).json({ error: 'Image not found' });
+        }
+    } catch (error) {
+        console.error('Error deleting image:', error);
+        res.status(500).json({ error: 'Failed to delete image' });
+    }
+});
+
 
 // Get categories
 app.get('/api/categories', (req, res) => {

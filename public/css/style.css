@@ -1,4 +1,63 @@
 /* Color picker styles */
+body{
+    font-family: 'Cairo', sans-serif !important;
+
+}
+
+
+
+
+
+
+/* Top navbar styles */
+.navbar {
+    top: 2.5rem; /* Height of top navbar */
+}
+
+/* Adjust when scrolled */
+.navbar.scrolled {
+    top: 0;
+}
+
+/* Add transition for smooth movement */
+.navbar {
+    transition: all 0.3s ease;
+}
+
+/* Adjust main content padding */
+main {
+    padding-top: calc(2.5rem + 7rem); /* top navbar + main navbar height */
+}
+
+
+
+
+
+
+
+/* Filter styles */
+.filter-header {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-header:hover {
+    color: #4F46E5; /* indigo-600 */
+}
+
+.filter-content {
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.filter-content.hidden {
+    display: none;
+}
+
+/* Smooth transition for chevron icon */
+.fa-chevron-down {
+    transition: transform 0.3s ease;
+}
 .color-option {
     width: 24px;
     height: 24px;

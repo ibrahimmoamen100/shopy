@@ -1,110 +1,72 @@
 {
   "products": [
     {
-      "id": "1735483885675",
-      "sku": "PRD-8062-5675",
-      "title": "خلاط جماكي ايطالي 7000 وات بيكسر الازاز",
-      "price": 2400,
-      "discountPrice": 2000,
-      "brand": "Jamaky",
-      "category": "ادوات كهربائيه",
-      "colors": [
-        "#ffff00"
-      ],
-      "sizes": [
-        "2لتر"
-      ],
-      "images": [
-        "/uploads/1735483885673.jpg"
-      ],
-      "inBox": false,
-      "endTime": null,
-      "createdAt": "2024-12-29T14:51:25.675Z"
-    },
-    {
-      "id": "1735484183333",
-      "sku": "PRD-2265-3333",
-      "title": "اتنين دفايه",
-      "price": 1360,
-      "discountPrice": 970,
-      "brand": "دفايات",
+      "id": "1735824162051",
+      "sku": "PRD-9998-2051",
+      "title": "sa",
+      "price": 3800,
+      "discountPrice": 3499,
+      "brand": "AMD",
       "category": "مفارش",
       "colors": [
-        "#ff0000"
-      ],
-      "sizes": [
-        "240-220"
-      ],
-      "images": [
-        "/uploads/1735484183329.jpg",
-        "/uploads/1735484183330.jpg"
-      ],
-      "inBox": false,
-      "endTime": null,
-      "createdAt": "2024-12-29T14:56:23.333Z"
-    },
-    {
-      "id": "1735484422280",
-      "sku": "PRD-2743-2281",
-      "title": "كبه هاند بلندر مضرب بيض دورق 4x1   - 600w",
-      "price": 2000,
-      "discountPrice": 1750,
-      "brand": "hand blender",
-      "category": "ادوات كهربائيه",
-      "colors": [
-        "#ff0000"
+        "#00ff00"
       ],
       "sizes": [],
+      "description": "apu 2400g with redeon Vega 11 apu 2400g with redeon Vega 11apu 2400g with redeon Vega 11apu 2400g with redeon Vega 11apu 2400g with redeon Vega 11apu 2400g with redeon Vega 11",
+      "sellerDetails": "01024654 فائرxxxxxx",
       "images": [
-        "/uploads/1735484422279.jpg"
+        "/uploads/1735832987654.png",
+        "/uploads/1735832987724.png",
+        "/uploads/1735832987728.png"
       ],
       "inBox": false,
       "endTime": null,
-      "createdAt": "2024-12-29T15:00:22.280Z"
+      "createdAt": "2025-01-02T13:22:42.051Z",
+      "updatedAt": "2025-01-02T16:07:07.966Z"
     },
     {
-      "id": "1735484594866",
-      "sku": "PRD-3914-4866",
-      "title": "طقم توزيع ٧ قطع استنلس تين",
-      "price": 300,
-      "discountPrice": 0,
-      "brand": "Stainless steel",
-      "category": "ادوات منزليه",
-      "colors": [
-        "#ff0000"
-      ],
-      "sizes": [],
-      "images": [
-        "/uploads/1735484594864.jpg"
-      ],
-      "inBox": false,
-      "endTime": null,
-      "createdAt": "2024-12-29T15:03:14.866Z"
-    },
-    {
-      "id": "1735484901862",
-      "sku": "PRD-0048-1862",
-      "title": " براند عالمي ecoten أقوي براند تركي م أحدث تقنيات أواني الجرانيت  غير قابل للخدش  آمن ، صحي حاصل علي شهادة الجودة  يستخدم داخل غسالة الأطباق  وجميع أنواع البوتجاز معاه طاسه مقاس 24 ",
+      "id": "1735828336541",
+      "sku": "PRD-7402-6541",
+      "title": "Ryzen 5 3600 ",
       "price": 4500,
-      "discountPrice": 3800,
-      "brand": "ecoten ",
-      "category": "ادوات منزليه",
+      "discountPrice": 0,
+      "brand": "AMD",
+      "category": "مفارش",
       "colors": [
         "#ff00ff"
       ],
       "sizes": [
-        "28 ",
-        "24 ",
-        "20",
-        "18 "
+        "asd"
       ],
+      "description": "CPU ryzen 5 3600g amd CPU ryzen 5 3600g amd CPU ryzen 5 3600g amd ",
+      "sellerDetails": "01024654 فائر",
       "images": [
-        "/uploads/1735484901858.jpg",
-        "/uploads/1735484901860.jpg"
+        "/uploads/1735828336526.png"
       ],
       "inBox": false,
       "endTime": null,
-      "createdAt": "2024-12-29T15:08:21.862Z"
+      "createdAt": "2025-01-02T14:32:16.541Z",
+      "updatedAt": "2025-01-02T15:51:32.548Z"
+    },
+    {
+      "id": "1735834403548",
+      "sku": "PRD-0847-3548",
+      "title": "APU 2400G ",
+      "price": 3800,
+      "discountPrice": 0,
+      "brand": "AMD",
+      "category": "كتب",
+      "colors": [],
+      "sizes": [],
+      "description": "zxczxc",
+      "sellerDetails": "asdczxc",
+      "images": [
+        "/uploads/1735834403525.png",
+        "/uploads/1735834403540.png"
+      ],
+      "inBox": false,
+      "endTime": null,
+      "createdAt": "2025-01-02T16:13:23.548Z"
     }
   ],
   "categories": [
