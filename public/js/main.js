@@ -93,9 +93,9 @@ function renderProducts() {
         const matchesPrice = product.price <= filters.price;
         const matchesCategory = filters.categories.length === 0 || filters.categories.includes(product.category);
         const matchesBrand = filters.brands.length === 0 || filters.brands.includes(product.brand);
-        const matchesColor = filters.colors.length === 0 || product.colors.some(color => filters.colors.includes(color));
+        // const matchesColor = filters.colors.length === 0 || product.colors.some(color => filters.colors.includes(color));
         
-        return matchesSearch && matchesPrice && matchesCategory && matchesBrand && matchesColor;
+        return matchesSearch && matchesPrice && matchesCategory && matchesBrand ;
     });
 
     productsGrid.innerHTML = filteredProducts.map(product => `
@@ -473,17 +473,17 @@ function setupFilters() {
     }
 
     // Setup colors
-    const colors = [...new Set(products.flatMap(p => p.colors))];
-    document.getElementById('colorsFilter').innerHTML = colors.map(color => `
-        <div class="color-filter relative group" onclick="toggleColor('${color}')">
-            <div class="w-8 h-8 rounded-full cursor-pointer shadow-sm transition-transform hover:scale-110"
-                 style="background-color: ${color};">
-            </div>
-            <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                ${color}
-            </div>
-        </div>
-    `).join('');
+    // const colors = [...new Set(products.flatMap(p => p.colors))];
+    // document.getElementById('colorsFilter').innerHTML = colors.map(color => `
+    //     <div class="color-filter relative group" onclick="toggleColor('${color}')">
+    //         <div class="w-8 h-8 rounded-full cursor-pointer shadow-sm transition-transform hover:scale-110"
+    //              style="background-color: ${color};">
+    //         </div>
+    //         <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+    //             ${color}
+    //         </div>
+    //     </div>
+    // `).join('');
 
     // Setup price range with smooth updates
     const priceRange = document.getElementById('priceRange');
@@ -653,13 +653,13 @@ function showProductModal(productId) {
     `).join('');
 
     // Update colors
-    const colorsContainer = document.getElementById('modalProductColors');
-    colorsContainer.innerHTML = product.colors.map(color => `
-        <div class="w-8 h-8 rounded-full cursor-pointer border-2 hover:scale-110 transition-transform"
-             style="background-color: ${color};"
-             onclick="selectColor(this, '${color}')">
-        </div>
-    `).join('');
+    // const colorsContainer = document.getElementById('modalProductColors');
+    // colorsContainer.innerHTML = product.colors.map(color => `
+    //     <div class="w-8 h-8 rounded-full cursor-pointer border-2 hover:scale-110 transition-transform"
+    //          style="background-color: ${color};"
+    //          onclick="selectColor(this, '${color}')">
+    //     </div>
+    // `).join('');
 
     // Update sizes
     const sizesSection = document.getElementById('modalSizesSection');
@@ -710,12 +710,12 @@ function updateMainImage(imageSrc, thumbnailElement) {
 }
 
 // Select color
-function selectColor(element, color) {
-    document.querySelectorAll('#modalProductColors > div').forEach(div => {
-        div.classList.remove('ring-2', 'ring-blue-500', 'scale-110');
-    });
-    element.classList.add('ring-2', 'ring-blue-500', 'scale-110');
-}
+// function selectColor(element, color) {
+//     document.querySelectorAll('#modalProductColors > div').forEach(div => {
+//         div.classList.remove('ring-2', 'ring-blue-500', 'scale-110');
+//     });
+//     element.classList.add('ring-2', 'ring-blue-500', 'scale-110');
+// }
 
 // Select size
 function selectSize(element, size) {
@@ -728,28 +728,28 @@ function selectSize(element, size) {
 }
 
 // Toggle color selection with animation
-function toggleColor(color) {
-    const colorElements = document.querySelectorAll('.color-filter');
-    colorElements.forEach(el => {
-        if (el.querySelector('div').style.backgroundColor === color) {
-            el.classList.toggle('selected');
-            if (el.classList.contains('selected')) {
-                el.querySelector('div').style.transform = 'scale(1.2)';
-                el.querySelector('div').style.boxShadow = '0 0 0 2px white, 0 0 0 4px #4f46e5';
-            } else {
-                el.querySelector('div').style.transform = 'scale(1)';
-                el.querySelector('div').style.boxShadow = '';
-            }
-        }
-    });
+// function toggleColor(color) {
+//     const colorElements = document.querySelectorAll('.color-filter');
+//     colorElements.forEach(el => {
+//         if (el.querySelector('div').style.backgroundColor === color) {
+//             el.classList.toggle('selected');
+//             if (el.classList.contains('selected')) {
+//                 el.querySelector('div').style.transform = 'scale(1.2)';
+//                 el.querySelector('div').style.boxShadow = '0 0 0 2px white, 0 0 0 4px #4f46e5';
+//             } else {
+//                 el.querySelector('div').style.transform = 'scale(1)';
+//                 el.querySelector('div').style.boxShadow = '';
+//             }
+//         }
+//     });
 
-    if (filters.colors.includes(color)) {
-        filters.colors = filters.colors.filter(c => c !== color);
-    } else {
-        filters.colors.push(color);
-    }
-    applyFilters();
-}
+//     if (filters.colors.includes(color)) {
+//         filters.colors = filters.colors.filter(c => c !== color);
+//     } else {
+//         filters.colors.push(color);
+//     }
+//     applyFilters();
+// }
 
 // Initialize the application when the DOM is loaded
 document.addEventListener('DOMContentLoaded', init);

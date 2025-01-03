@@ -247,13 +247,26 @@
     </main>
 
     <script>
-        function checkPassword() {
+        async function checkPassword() {
             const password = document.getElementById('passwordInput').value;
-            if (password === '45086932') {
-                document.getElementById('passwordModal').style.display = 'none';
-            } else {
-                alert('كلمة المرور غير صحيحة');
-                document.getElementById('passwordInput').value = '';
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ password })
+                });
+
+                if (response.ok) {
+                    document.getElementById('passwordModal').style.display = 'none';
+                } else {
+                    alert('كلمة المرور غير صحيحة');
+                    document.getElementById('passwordInput').value = '';
+                }
+            } catch (error) {
+                alert('حدث خطأ في الاتصال بالخادم');
+                console.error('Error:', error);
             }
         }
 

@@ -20,6 +20,7 @@ app.use(session({
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.json()); // Added express.json() middleware
 app.use(express.static('public'));
 
 // Create store.json if it doesn't exist
@@ -78,6 +79,17 @@ const requireAuth = (req, res, next) => {
         res.status(401).json({ error: 'Unauthorized' });
     }
 };
+
+// Login route
+app.post('/api/login', (req, res) => {
+    const { password } = req.body;
+    if (password === '45086932') {
+        req.session.isAuthenticated = true;
+        res.json({ success: true });
+    } else {
+        res.status(401).json({ error: 'Invalid password' });
+    }
+});
 
 // Routes
 // Get all products
@@ -255,25 +267,6 @@ app.get('/api/brands', (req, res) => {
 });
 
 // Authentication routes
-app.post('/api/login', async (req, res) => {
-    const { password } = req.body;
-    
-    try {
-        const hashedPassword = '$2a$10$0oLwZf3bNBddde4c9KGMS.Z4U5q9/gGNsibNHxfkROAJ.PvlCbY/e';
-        
-        const isValid = await bcrypt.compare(password, hashedPassword);
-        
-        if (isValid) {
-            req.session.isAuthenticated = true;
-            res.json({ success: true });
-        } else {
-            res.status(401).json({ error: 'Invalid password' });
-        }
-    } catch (error) {
-        res.status(500).json({ error: 'Server error' });
-    }
-});
-
 app.post('/api/logout', (req, res) => {
     req.session.destroy();
     res.json({ success: true });

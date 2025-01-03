@@ -42,6 +42,51 @@
       "inBox": false,
       "endTime": null,
       "createdAt": "2025-01-02T22:40:30.629Z"
+    },
+    {
+      "id": "1735879982506",
+      "sku": "PRD-6151-2506",
+      "title": "كرت شاشه GTX 750TI",
+      "price": 2400,
+      "discountPrice": 2200,
+      "brand": "ASUS",
+      "category": "كروت شاشه",
+      "colors": [],
+      "sizes": [
+        "sfs"
+      ],
+      "description": "كرت شاشه GTX 750TI \r\nمع مروحه واحده و اعلي درجه حراره يصل لها 79 ",
+      "sellerDetails": "سيد محسن 01024910104",
+      "images": [
+        "/uploads/1735879982483.png"
+      ],
+      "inBox": false,
+      "endTime": null,
+      "createdAt": "2025-01-03T04:53:02.506Z",
+      "updatedAt": "2025-01-03T04:54:27.870Z"
+    },
+    {
+      "id": "1735882639955",
+      "sku": "PRD-2803-9955",
+      "title": "Ryzen 5 2400G",
+      "price": 2800,
+      "discountPrice": 2600,
+      "brand": "AMD",
+      "category": "معالج",
+      "colors": [
+        "#ff0000"
+      ],
+      "sizes": [],
+      "description": "Ryzen 5 2400G يأتي مع كرت شاشه مدمج Vega 11 يوازي GTX 750TI\r\n4  كور 8 ثريد",
+      "sellerDetails": "سيد محسن 01024910104",
+      "images": [
+        "/uploads/1735882639920.webp",
+        "/uploads/1735882639936.webp",
+        "/uploads/1735882639938.jpg"
+      ],
+      "inBox": false,
+      "endTime": null,
+      "createdAt": "2025-01-03T05:37:19.955Z"
     }
   ],
   "categories": [
